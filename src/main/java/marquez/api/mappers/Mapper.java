@@ -49,7 +49,6 @@ import marquez.common.models.DatasetName;
 import marquez.common.models.JobType;
 import marquez.common.models.OwnerName;
 import marquez.common.models.SourceName;
-import marquez.common.models.SourceType;
 import marquez.service.models.Dataset;
 import marquez.service.models.DatasetMeta;
 import marquez.service.models.DbTable;
@@ -94,7 +93,7 @@ public final class Mapper {
 
   public static SourceMeta toSourceMeta(@NonNull final SourceRequest request) {
     return new SourceMeta(
-        SourceType.valueOf(request.getType()),
+        request.getType(),
         URI.create(request.getConnectionUrl()),
         request.getDescription().orElse(null));
   }
